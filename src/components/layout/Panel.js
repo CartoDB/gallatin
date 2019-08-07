@@ -60,6 +60,9 @@ class Panel extends Component {
             <LayerToggle
               layer={this.props.layers.fire}
             />
+            <LayerToggle
+              layer={this.props.layers.zoning}
+            />
           </div>
         </div>
       </div>

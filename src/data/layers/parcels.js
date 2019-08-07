@@ -16,10 +16,10 @@ export default {
     `,
   
     query: `
-    SELECT * FROM parcels_1`,
+    SELECT *, class as c FROM parcels_1`,
   
     options: {
-      featureClickColumns: ['parcel_id', 'class', 'subclass', 'record', 'sub_name']
+      featureClickColumns: ['parcel_id', 'c', 'subclass', 'record', 'sub_name']
     }
   };
   

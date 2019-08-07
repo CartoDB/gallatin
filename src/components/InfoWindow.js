@@ -1,21 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const InfoWindow = ({ railroad, cause, weather, accident_type, image, city }) => (
-  <as-infowindow src={image}>
-    <h1 className="as-title">{city}</h1>
-    <p>
-    <span className="as-badge">{accident_type}</span>
-    </p>
+const InfoWindow = ({ full, publicview, condo, datestring, type, elevation, comments }) => (
+  <as-infowindow>
+    <h1 className="as-title">{full}</h1>
     <br />
-    <p className="as-caption">{cause}</p>
-    <br />
-    <h4 className="as-subheader">Company</h4>
-    <p className="as-body">{railroad}</p>
-    <br />
-    <h4 className="as-subheader">Weather</h4>
-    <p className="as-body">{weather}</p>
+    <h4 className="as-subheader">Property Information</h4>
+    <p className="as-body">Condo: {condo}</p>
+    <p className="as-body">Date Updated: {datestring}</p>
+    <p className="as-body">Type: {type}</p>
+    <p className="as-body">Elevation: {elevation}</p>
+    <p className="as-body">Comments: {comments}</p>
 </as-infowindow>
 );
 
 export default InfoWindow;
+
+

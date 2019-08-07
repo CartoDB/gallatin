@@ -48,6 +48,13 @@ class RightBar extends Component {
         column='subclass'
         operation={carto.operation.COUNT}
     />
+     <Category
+        title='Parcel Status'
+        description='Count of each parcel status in view'
+        categoryLayer={this.props.layers.parcels.source}
+        column='status'
+        operation={carto.operation.COUNT}
+    />
       <Category
         title='Strucutre City'
         description='Filter structures by city'
@@ -60,6 +67,27 @@ class RightBar extends Component {
         description='Count of each structure type in view'
         categoryLayer={this.props.layers.structures.source}
         column='type'
+        operation={carto.operation.COUNT}
+    />
+    <Category
+        title='Zoning Inner Zone'
+        description='ount of each zoning inner zones in view'
+        categoryLayer={this.props.layers.zoning.source}
+        column='innerzone'
+        operation={carto.operation.COUNT}
+    />
+    <Category
+        title='Zoning District'
+        description='Count of each zoning district in view'
+        categoryLayer={this.props.layers.zoning.source}
+        column='district'
+        operation={carto.operation.COUNT}
+    />
+    <Category
+        title='Zoning Land Use'
+        description='ount of each zoning land use types in view'
+        categoryLayer={this.props.layers.zoning.source}
+        column='landuse'
         operation={carto.operation.COUNT}
     />
       </div>

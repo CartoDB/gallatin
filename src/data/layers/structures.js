@@ -5,7 +5,7 @@ export default {
   
     cartocss: `
     #layer {
-        marker-width: 4;
+        marker-width: 6;
         marker-fill: #8baaca;
         marker-fill-opacity: 0.9;
         marker-allow-overlap: true;

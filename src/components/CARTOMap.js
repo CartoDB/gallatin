@@ -7,6 +7,9 @@ import styled from 'styled-components';
 import { storeLayers, setMap, setBboxFilter, changeViewport, changeCartoBBox } from '../actions/actions';
 // import { Widgets, Legend, AirbnbPopup, MobileTabs } from '../components/components';
 import InfoWindow from '../components/InfoWindow'
+import ParcelInfoWindow from '../components/ParcelInfoWindow'
+import ZoningInfoWindow from '../components/ZoningInfoWindow'
+
 import layers from '../data/layers';
 import C from '../data/C'
 import '@carto/airship-style';
@@ -75,7 +78,15 @@ class CARTOMap extends Component {
       const layer = new carto.layer.Layer(source, style, options);
 
       if(options.featureClickColumns) {
-        layer.on('featureClicked', this.openPopup.bind(this));
+        console.log(layerName)
+        if (layerName === 'structures') {
+          layer.on('featureClicked', this.openPopup.bind(this));
+        } else if (layerName === 'parcels') {
+          layer.on('featureClicked', this.openParcelsPopup.bind(this));
+        } else if (layerName === 'zoning') {
+          layer.on('featureClicked', this.openZoningPopup.bind(this));
+        }
+       
       }
 
       if (other.visible === false) {
@@ -109,6 +120,26 @@ class CARTOMap extends Component {
     if (!this.popup.isOpen()) {
       this.popup.openOn(this.props.map);
       render(<InfoWindow {...featureEvent.data} />, this.popup._contentNode);
+    }
+  }
+
+  openParcelsPopup(featureEvent) {
+    this.popup.setContent('');
+    this.popup.setLatLng(featureEvent.latLng);
+
+    if (!this.popup.isOpen()) {
+      this.popup.openOn(this.props.map);
+      render(<ParcelInfoWindow {...featureEvent.data} />, this.popup._contentNode);
+    }
+  }
+
+  openZoningPopup(featureEvent) {
+    this.popup.setContent('');
+    this.popup.setLatLng(featureEvent.latLng);
+
+    if (!this.popup.isOpen()) {
+      this.popup.openOn(this.props.map);
+      render(<ZoningInfoWindow {...featureEvent.data} />, this.popup._contentNode);
     }
   }
 
