@@ -34,11 +34,34 @@ class RightBar extends Component {
     return (
       <aside className={this.state.size} data-name={this.props.name}>
       <div className="as-m--24">
-      <CategoryVL
-        title='State'
-        description='Total damage for each railroad company in USD'
-      />
-
+      <Category
+        title='Parcel Class'
+        description='Count of each parcel class in view'
+        categoryLayer={this.props.layers.parcels.source}
+        column='class'
+        operation={carto.operation.COUNT}
+    />
+      <Category
+        title='Parcel Sub-Class'
+        description='Count of each parcel sub-class in view'
+        categoryLayer={this.props.layers.parcels.source}
+        column='subclass'
+        operation={carto.operation.COUNT}
+    />
+      <Category
+        title='Strucutre City'
+        description='Filter structures by city'
+        categoryLayer={this.props.layers.structures.source}
+        column='jurisdicti'
+        operation={carto.operation.COUNT}
+    />
+      <Category
+        title='Structure Type'
+        description='Count of each structure type in view'
+        categoryLayer={this.props.layers.structures.source}
+        column='type'
+        operation={carto.operation.COUNT}
+    />
       </div>
       </aside>
 

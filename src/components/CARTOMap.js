@@ -78,6 +78,10 @@ class CARTOMap extends Component {
         layer.on('featureClicked', this.openPopup.bind(this));
       }
 
+      if (other.visible === false) {
+        layer.hide()
+      }
+
       this.props.client.getLeafletLayer().addTo(this.props.map);
 
       return { ...all, [layerName]: { source, style, layer, ...other } };

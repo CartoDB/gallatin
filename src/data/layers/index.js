@@ -1,9 +1,18 @@
-import railaccidents from './railaccidents';
-import usstates from './usstates';
+import majorsubs from './majorsubs';
+import schools from './schools';
+import fire from './fire';
+import minorsubs from './minorsubs';
+import parcels from './parcels';
+import structures from './structures';
 
 // import neighbourhoods from './neighbourhoods';
 
 // Export order will be the layer order
 export default {
-  railaccidents
+  schools,
+  fire,
+  majorsubs,
+  minorsubs,
+  parcels,
+  structures
 }

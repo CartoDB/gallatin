@@ -9,7 +9,7 @@ import '@carto/airship-style';
 class LayerToggle extends Component {
 
   state = {
-    checked: true
+    checked: null
   };
 
   componentDidMount() {
@@ -19,10 +19,9 @@ class LayerToggle extends Component {
 
   setupConfig() {
     const { checked } = this.state;
-    this.widget.checked = checked
+    this.widget.checked = this.props.layer.visible
   }
-
-  setupChecked() {
+  setupChecked() {    
     this.widget.addEventListener('change', (event) => {
       this.setState({ checked: event.detail })
       if (event.detail === true) {
