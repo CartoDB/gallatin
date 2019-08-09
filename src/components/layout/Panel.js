@@ -63,6 +63,9 @@ class Panel extends Component {
             <LayerToggle
               layer={this.props.layers.zoning}
             />
+            <LayerToggle
+              layer={this.props.layers.water}
+            />
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import minorsubs from './minorsubs';
 import parcels from './parcels';
 import structures from './structures';
 import zoning from './zoning'
+import water from './water'
 
 // import neighbourhoods from './neighbourhoods';
 
@@ -15,6 +16,7 @@ export default {
   majorsubs,
   minorsubs,
   parcels,
+  water,
   structures,
   zoning
 }

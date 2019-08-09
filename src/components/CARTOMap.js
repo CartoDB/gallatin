@@ -9,6 +9,8 @@ import { storeLayers, setMap, setBboxFilter, changeViewport, changeCartoBBox } f
 import InfoWindow from '../components/InfoWindow'
 import ParcelInfoWindow from '../components/ParcelInfoWindow'
 import ZoningInfoWindow from '../components/ZoningInfoWindow'
+import WaterInfoWindow from '../components/WaterInfoWindow'
+
 
 import layers from '../data/layers';
 import C from '../data/C'
@@ -85,6 +87,8 @@ class CARTOMap extends Component {
           layer.on('featureClicked', this.openParcelsPopup.bind(this));
         } else if (layerName === 'zoning') {
           layer.on('featureClicked', this.openZoningPopup.bind(this));
+        } else if (layerName === 'water') {
+          layer.on('featureClicked', this.openWaterPopup.bind(this));
         }
        
       }
@@ -140,6 +144,16 @@ class CARTOMap extends Component {
     if (!this.popup.isOpen()) {
       this.popup.openOn(this.props.map);
       render(<ZoningInfoWindow {...featureEvent.data} />, this.popup._contentNode);
+    }
+  }
+
+  openWaterPopup(featureEvent) {
+    this.popup.setContent('');
+    this.popup.setLatLng(featureEvent.latLng);
+
+    if (!this.popup.isOpen()) {
+      this.popup.openOn(this.props.map);
+      render(<WaterInfoWindow {...featureEvent.data} />, this.popup._contentNode);
     }
   }
 
